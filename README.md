@@ -11,7 +11,7 @@
 
 Incubating API Repository to evolve and maintain the definitions and documentation of KnowYourCustomerFill-in Service API(s) within the Sub Project [Know Your Customer](https://lf-camaraproject.atlassian.net/wiki/x/I4DGB)
 
-* API Repository [wiki page](https://lf-camaraproject.atlassian.net/wiki/x/I4DGB) !! Update the link when wiki page for the API repository is created !
+* API Repository [wiki page](https://lf-camaraproject.atlassian.net/wiki/x/AYAzC)
 
 ## Scope
 
