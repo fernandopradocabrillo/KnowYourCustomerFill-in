@@ -34,12 +34,12 @@ The API definition(s) are based on
   - [View it on Swagger Editor](https://editor.swagger.io/swagger-ui/?url=https://raw.githubusercontent.com/camaraproject/KnowYourCustomerFill-in/r1.1/code/API_definitions/kyc-fill-in.yaml&nocors)
 
 **Changed**
-- [KYC Fill-in] Correction of example for gender attribute by @ToshiWakayama in https://github.com/camaraproject/KnowYourCustomerFill-in/pull/6
-- [kyc-fill-in] Remove AUTHENTICATION_REQUIRED error cod by @Toshi Wakayama in https://github.com/camaraproject/KnowYourCustomerFill-in/pull/8
-- [kyc-fill-in] Birth & Citizenship Information by @ToshiWakayama in https://github.com/camaraproject/KnowYourCustomerFill-in/pull/11
-- [kyc-fill-in] Update x-correlator format by @ToshiWakayama in https://github.com/camaraproject/KnowYourCustomerFill-in/pull/13
-- [kyc-fill-in] Add text on undocumented errors to OAS definition by @ToshiWakayama in https://github.com/camaraproject/KnowYourCustomerFill-in/pull/15
-- [kyc-fill-in] Extended "ID Document" Attribute by @ToshiWakayama in https://github.com/camaraproject/KnowYourCustomerFill-in/pull/18
+- [KYC Fill-in] Correction of example for gender attribute by @ToshiWakayama-KDDI in https://github.com/camaraproject/KnowYourCustomerFill-in/pull/6
+- [kyc-fill-in] Remove AUTHENTICATION_REQUIRED error cod by @ToshiWakayama-KDDI in https://github.com/camaraproject/KnowYourCustomerFill-in/pull/8
+- [kyc-fill-in] Birth & Citizenship Information by @ToshiWakayama-KDDI in https://github.com/camaraproject/KnowYourCustomerFill-in/pull/11
+- [kyc-fill-in] Update x-correlator format by @ToshiWakayama-KDDI in https://github.com/camaraproject/KnowYourCustomerFill-in/pull/13
+- [kyc-fill-in] Add text on undocumented errors to OAS definition by @ToshiWakayama-KDDI in https://github.com/camaraproject/KnowYourCustomerFill-in/pull/15
+- [kyc-fill-in] Extended "ID Document" Attribute by @ToshiWakayama-KDDI in https://github.com/camaraproject/KnowYourCustomerFill-in/pull/18
 
 
 
