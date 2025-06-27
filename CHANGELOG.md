@@ -47,7 +47,7 @@ The API definition(s) are based on
 
 **The repository KnowYourCustomerFill-in was created for kyc-fill-in v0.4.0 and the previous versions of the kyc-fill-in API were stored in the old repository KnowYourCustomer.  Below is Changelog from the KnowYourCustomer repository which includes the kyc-match API and the kyc-age-verification API in addition to the kyc-fill-in API.**
 
-**Changelog history to be copy-and-pasted from old repo.**
+**Changelog history to be copy-and-pasted from the old repo shortly.**
 
 
 
