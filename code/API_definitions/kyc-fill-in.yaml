@@ -35,7 +35,8 @@ info:
     ### Special Scopes
 
     This API uses the following special scope kyc-fill-in:set-all which means that the API provider returns an API response as if all these scopes were specified in the scope value in the request:
-    `kyc-fill-in:phoneNumber kyc-fill-in:idDocument kyc-fill-in:idDocumentType kyc-fill-in:idDocumentExpiryDate kyc-fill-in:name kyc-fill-in:givenName kyc-fill-in:familyName kyc-fill-in:nameKanaHankaku kyc-fill-in:nameKanaZenkaku kyc-fill-in:middleNames kyc-fill-in:familyNameAtBirth kyc-fill-in:address kyc-fill-in:streetName kyc-fill-in:streetNumber kyc-fill-in:postalCode kyc-fill-in:region kyc-fill-in:locality kyc-fill-in:country kyc-fill-in:houseNumberExtension kyc-fill-in:birthdate kyc-fill-in:email kyc-fill-in:gender`
+
+    `kyc-fill-in:phoneNumber kyc-fill-in:idDocument kyc-fill-in:idDocumentType kyc-fill-in:idDocumentExpiryDate kyc-fill-in:name kyc-fill-in:givenName kyc-fill-in:familyName kyc-fill-in:nameKanaHankaku kyc-fill-in:nameKanaZenkaku kyc-fill-in:middleNames kyc-fill-in:familyNameAtBirth kyc-fill-in:address kyc-fill-in:streetName kyc-fill-in:streetNumber kyc-fill-in:postalCode kyc-fill-in:region kyc-fill-in:locality kyc-fill-in:country kyc-fill-in:houseNumberExtension kyc-fill-in:birthdate kyc-fill-in:email kyc-fill-in:gender kyc-fill-in:cityOfBirth kyc-fill-in:countryOfBirth kyc-fill-in:nationality`
 
     ## Resources and Operations overview
 
@@ -65,6 +66,13 @@ info:
     - If the subject cannot be identified from the access token and the optional `phoneNumber` field is not included in the request, then the server will return an error with the `422 MISSING_IDENTIFIER` error code.
 
     - If the subject can be identified from the access token and the optional `phoneNumber` field is also included in the request, then the server will return an error with the `422 UNNECESSARY_IDENTIFIER` error code. This will be the case even if the same phone number is identified by these two methods, as the server is unable to make this comparison.
+
+    ### Additional CAMARA error responses
+    The list of error codes in this API specification is not exhaustive. Therefore the API specification may not document some non-mandatory error statuses as indicated in `CAMARA API Design Guide`.
+
+    Please refer to the `CAMARA_common.yaml` of the Commonalities Release associated to this API version for a complete list of error responses. The applicable Commonalities Release can be identified in the `API Readiness Checklist` document associated to this API version.
+
+    As a specific rule, error `501 - NOT_IMPLEMENTED` can be only a possible error response if it is explicitly documented in the API.
 
   license:
     name: Apache 2.0
@@ -142,6 +150,12 @@ paths:
           - kyc-fill-in:email
         - openId:
           - kyc-fill-in:gender
+        - openId:
+          - kyc-fill-in:cityOfBirth
+        - openId:
+          - kyc-fill-in:countryOfBirth
+        - openId:
+          - kyc-fill-in:nationality
         
       parameters:
         - $ref: '#/components/parameters/x-correlator'
@@ -193,6 +207,9 @@ paths:
                     birthdate: '1978-08-22'
                     email: abc@example.com
                     gender: MALE
+                    cityOfBirth: Madrid
+                    countryOfBirth: ES
+                    nationality: ES
 
         "400":
           $ref: '#/components/responses/Generic400'
@@ -216,19 +233,15 @@ components:
       description: Correlation id for the different services
       required: false
       schema:
-        type: string
-        pattern: ^[a-zA-Z0-9-]{1,55}$
-        example: "b4333c46-49c0-4f62-80d7-f0ef930f1c46"
-        
+        $ref: "#/components/schemas/XCorrelator"
+                
   parameters:
     x-correlator:
       name: x-correlator
       in: header
       description: Correlation id for the different services
       schema:
-        type: string
-        pattern: ^[a-zA-Z0-9-]{1,55}$
-        example: "b4333c46-49c0-4f62-80d7-f0ef930f1c46"
+        $ref: "#/components/schemas/XCorrelator"
         
   schemas:
     KYC_FillinRequest:
@@ -341,7 +354,19 @@ components:
             - MALE
             - FEMALE
             - OTHER
-          
+ 
+        cityOfBirth:
+          type: string
+          description: City where the customer was born.
+
+        countryOfBirth:
+          type: string
+          description: Country where the customer was born. Format ISO 3166-1 alpha-2.
+
+        nationality:
+          type: string
+          description: ISO 3166-1 alpha-2 code of the customer’s nationality. In the case a customer has more than one nationality, it is supposed to be the nationality related to the ID document provided in the match request.
+         
     ErrorInfo:
       type: object
       required:
@@ -358,6 +383,11 @@ components:
         message:
           type: string
           description: Detailed error description
+
+    XCorrelator:
+      type: string
+      pattern: ^[a-zA-Z0-9-_:;.\/<>{}]{0,256}$
+      example: "b4333c46-49c0-4f62-80d7-f0ef930f1c46"
 
   responses:
     Generic400:
