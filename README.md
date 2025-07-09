@@ -17,7 +17,7 @@ Incubating API Repository to evolve and maintain the definitions and documentati
 
 * Service API(s) “KnowYourCustomerFill-in” (see APIBacklog.md) 
 * The API provides the API consumer with the ability to:  
-  * request and receive the information for a particular end user, which on file (and verified) by the end user's Operator in their own KYC records, in order for the service provider (API consumer) to confirm the accuracy of the information and provide a specific service to the end user.
+  * request and receive the information for a particular end user, which is on file (and verified) by the end user's Operator in their own KYC records, in order for the service provider (API consumer) to confirm the accuracy of the information and provide a specific service to the end user.
 * Describe, develop, document, and test the API(s)
 * Started: September 2023 (within [KnowYourCustomer](https://github.com/camaraproject/KnowYourCustomer))
 * Incubating stage since: February 2025
