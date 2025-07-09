@@ -33,13 +33,22 @@ The API definition(s) are based on
   - [View it on ReDoc](https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/camaraproject/KnowYourCustomerFill-in/r1.1/code/API_definitions/kyc-fill-in.yaml&nocors)
   - [View it on Swagger Editor](https://editor.swagger.io/swagger-ui/?url=https://raw.githubusercontent.com/camaraproject/KnowYourCustomerFill-in/r1.1/code/API_definitions/kyc-fill-in.yaml&nocors)
 
-**Changed**
-- [KYC Fill-in] Correction of example for gender attribute by @ToshiWakayama-KDDI in https://github.com/camaraproject/KnowYourCustomerFill-in/pull/6
-- [kyc-fill-in] Remove AUTHENTICATION_REQUIRED error cod by @ToshiWakayama-KDDI in https://github.com/camaraproject/KnowYourCustomerFill-in/pull/8
-- [kyc-fill-in] Birth & Citizenship Information by @ToshiWakayama-KDDI in https://github.com/camaraproject/KnowYourCustomerFill-in/pull/11
-- [kyc-fill-in] Update x-correlator format by @ToshiWakayama-KDDI in https://github.com/camaraproject/KnowYourCustomerFill-in/pull/13
-- [kyc-fill-in] Add text on undocumented errors to OAS definition by @ToshiWakayama-KDDI in https://github.com/camaraproject/KnowYourCustomerFill-in/pull/15
-- [kyc-fill-in] Extended "ID Document" Attribute by @ToshiWakayama-KDDI in https://github.com/camaraproject/KnowYourCustomerFill-in/pull/18
+### Added
+ * Some attributes of the end user information added by the following two PRs:
+   * [kyc-fill-in] Birth & Citizenship Information by @ToshiWakayama-KDDI in https://github.com/camaraproject/KnowYourCustomerFill-in/pull/11 
+   * [kyc-fill-in] Extended "ID Document" Attribute by @ToshiWakayama-KDDI in https://github.com/camaraproject/KnowYourCustomerFill-in/pull/18
+ 
+ * [kyc-fill-in] Add text on undocumented errors to OAS definition by @ToshiWakayama-KDDI in https://github.com/camaraproject/KnowYourCustomerFill-in/pull/15
+
+### Changed
+ * [kyc-fill-in] Update x-correlator format by @ToshiWakayama-KDDI in https://github.com/camaraproject/KnowYourCustomerFill-in/pull/13
+ 
+### Fixed
+ * [KYC Fill-in] Correction of example for gender attribute by @ToshiWakayama-KDDI in https://github.com/camaraproject/KnowYourCustomerFill-in/pull/6
+
+### Removed
+ * [kyc-fill-in] Remove AUTHENTICATION_REQUIRED error cod by @ToshiWakayama-KDDI in https://github.com/camaraproject/KnowYourCustomerFill-in/pull/8
+
 
 ---
 
