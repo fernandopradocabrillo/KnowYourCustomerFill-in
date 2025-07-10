@@ -26,7 +26,7 @@ Background: Common KYC_Fill-in_API setup
     Scenario: Validation for success fill-in request and response scenario
         Given a valid testing phone number supported by the service, identified by the access token or provided in the request body
         And the resource "/kyc-fill-in/v0.4rc1"
-        When the HTTP "POST" request "KYC_Fill-In" is sent
+        When the HTTP "POST" request "KYC_Fill-in" is sent
         Then the response property "$.status" is 200
         And the response header "Content-Type" is "application/json"
         And the response header "x-correlator" has same value as the request header "x-correlator" 
