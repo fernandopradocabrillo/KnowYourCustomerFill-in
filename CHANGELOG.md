@@ -22,7 +22,7 @@ This pre-release contains the definition and documentation of
 
 The API definition(s) are based on
 * Commonalities v0.6.0-rc.1 (r3.2)
-* Identity and Consent Management v0.4.0
+* Identity and Consent Management v0.4.0-rc.1 (r3.2)
 
 ## kyc-fill-in v0.4.0-rc.1
 
