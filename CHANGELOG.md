@@ -26,7 +26,7 @@ The API definition(s) are based on
 
 ## kyc-fill-in v0.4.0-rc.1
 
-**kyc-fill-in v0.4.0-rc.1 is the release-candidate version for v0.4.0 of the CAMARA KnowYourCustomer Fill-in API**
+**kyc-fill-in v0.4.0-rc.1 is the first release-candidate version for v0.4.0 of the CAMARA KnowYourCustomer Fill-in API**
 
 - kyc-fill-in v0.4.0-rc.1 API definition **with inline documentation**:
   - OpenAPI [YAML spec file](https://github.com/camaraproject/KnowYourCustomerFill-in/blob/r1.1/code/API_definitions/kyc-fill-in.yaml)
