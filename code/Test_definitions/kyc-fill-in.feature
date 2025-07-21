@@ -1,19 +1,19 @@
-Feature: CAMARA Know Your Customer Fill-in API, vwip - Operation KYC_Fill-in
+Feature: CAMARA Know Your Customer Fill-in API, v0.4.0-rc.1 - Operation KYC_Fill-in
 
 # Input to be provided by the implementation to the tester
 #
 # Testing assets:
 # * A mobile line identified by its phone number "phoneNumber"
 #
-# References to OAS spec schemas refer to schemas specifies in kyc-fill-in.yaml, version vwip
+# References to OAS spec schemas refer to schemas specifies in kyc-fill-in.yaml, version v0.4.0-rc.1
 
 
 Background: Common KYC_Fill-in_API setup
     Given an environment at "apiRoot"
-    And the resource "/kyc-fill-in/vwip/fill-in"
+    And the resource "/kyc-fill-in/v0.4rc1/fill-in"
     And the header "Content-Type" is set to "application/json"
     And the header "Authorization" is set to a valid access token
-    And the header "x-correlator" is set to a UUID value
+    And the header "x-correlator" complies with the schema at "#/components/schemas/XCorrelator"
     And the request body is set by default to a request body compliant with the schema
 
 
@@ -25,8 +25,8 @@ Background: Common KYC_Fill-in_API setup
     @KYC_Fill-in_01_success_request_response
     Scenario: Validation for success fill-in request and response scenario
         Given a valid testing phone number supported by the service, identified by the access token or provided in the request body
-        And the resource "/kyc-fill-in/vwip"
-        When the HTTP "POST" request "KYC_Fill-In" is sent
+        And the resource "/kyc-fill-in/v0.4rc1"
+        When the HTTP "POST" request "KYC_Fill-in" is sent
         Then the response property "$.status" is 200
         And the response header "Content-Type" is "application/json"
         And the response header "x-correlator" has same value as the request header "x-correlator" 
