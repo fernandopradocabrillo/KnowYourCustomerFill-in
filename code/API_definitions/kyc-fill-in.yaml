@@ -198,7 +198,7 @@ paths:
                     familyNameAtBirth: YYYY
                     address: Tokyo-to Chiyoda-ku Iidabashi 3-10-10
                     streetName: Nicolas Salmeron
-                    streetNumber: 4
+                    streetNumber: '4'
                     postalCode: 1028460
                     region: Tokyo
                     locality: ZZZZ
@@ -534,3 +534,4 @@ components:
                 status: 422
                 code: UNNECESSARY_IDENTIFIER
                 message: An explicit phone number has been provided when one is already associated with the access token                
+
