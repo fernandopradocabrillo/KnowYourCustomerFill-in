@@ -11,14 +11,14 @@ info:
     * **KYC**: stands for Know Your Customer and it is the process of a business verifying the identity of their clients and assessing their suitability, along with the potential risks of illegal intentions towards the business relationship.
 
     ## API Functionality
-  
+
     This API allows API clients to request for API provider / MNO to provide information related to a mobile phone user, derived from the account data bound to their phone number.  The API is intended to be used in the following scenario, for example:
 
     * To fill-in the user personal data during the digital registration of an account to a 3rd party service.
 
-    The following figure is the generic high-level flows of this API.  
+    The following figure is the generic high-level flows of this API.
 
-    <img width="848" alt="KYC_Fill-in_flow" src="https://github.com/camaraproject/KnowYourCustomerMatch/blob/r1.1/documentation/API_documentation/assets/kyc-fill-in_flow.png">
+    <img width="848" alt="KYC_Fill-in_flow" src="https://raw.githubusercontent.com/camaraproject/KnowYourCustomerFill-in/r1.1/documentation/API_documentation/assets/kyc-fill-in_flow.png">
 
     Note:
 
@@ -78,12 +78,12 @@ info:
     name: Apache 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0.html
 
-  version: 0.4.0-rc.1
+  version: wip
   x-camara-commonalities: 0.6
 
 
 servers:
-  - url: '{apiRoot}/kyc-fill-in/v0.4rc1'
+  - url: '{apiRoot}/kyc-fill-in/vwip'
 
     variables:
       apiRoot:
@@ -105,61 +105,61 @@ paths:
 
       security:
         - openId:
-          - kyc-fill-in:set-all
+            - kyc-fill-in:set-all
         - openId:
-          - kyc-fill-in:phoneNumber
+            - kyc-fill-in:phoneNumber
         - openId:
-          - kyc-fill-in:idDocument
+            - kyc-fill-in:idDocument
         - openId:
-          - kyc-fill-in:idDocumentType
+            - kyc-fill-in:idDocumentType
         - openId:
-          - kyc-fill-in:idDocumentExpiryDate          
+            - kyc-fill-in:idDocumentExpiryDate
         - openId:
-          - kyc-fill-in:name
+            - kyc-fill-in:name
         - openId:
-          - kyc-fill-in:givenName
+            - kyc-fill-in:givenName
         - openId:
-          - kyc-fill-in:familyName
+            - kyc-fill-in:familyName
         - openId:
-          - kyc-fill-in:nameKanaHankaku
+            - kyc-fill-in:nameKanaHankaku
         - openId:
-          - kyc-fill-in:nameKanaZenkaku
+            - kyc-fill-in:nameKanaZenkaku
         - openId:
-          - kyc-fill-in:middleNames
+            - kyc-fill-in:middleNames
         - openId:
-          - kyc-fill-in:familyNameAtBirth
+            - kyc-fill-in:familyNameAtBirth
         - openId:
-          - kyc-fill-in:address
+            - kyc-fill-in:address
         - openId:
-          - kyc-fill-in:streetName
+            - kyc-fill-in:streetName
         - openId:
-          - kyc-fill-in:streetNumber
+            - kyc-fill-in:streetNumber
         - openId:
-          - kyc-fill-in:postalCode
+            - kyc-fill-in:postalCode
         - openId:
-          - kyc-fill-in:region
+            - kyc-fill-in:region
         - openId:
-          - kyc-fill-in:locality
+            - kyc-fill-in:locality
         - openId:
-          - kyc-fill-in:country
+            - kyc-fill-in:country
         - openId:
-          - kyc-fill-in:houseNumberExtension
+            - kyc-fill-in:houseNumberExtension
         - openId:
-          - kyc-fill-in:birthdate
+            - kyc-fill-in:birthdate
         - openId:
-          - kyc-fill-in:email
+            - kyc-fill-in:email
         - openId:
-          - kyc-fill-in:gender
+            - kyc-fill-in:gender
         - openId:
-          - kyc-fill-in:cityOfBirth
+            - kyc-fill-in:cityOfBirth
         - openId:
-          - kyc-fill-in:countryOfBirth
+            - kyc-fill-in:countryOfBirth
         - openId:
-          - kyc-fill-in:nationality
-        
+            - kyc-fill-in:nationality
+
       parameters:
         - $ref: '#/components/parameters/x-correlator'
-        
+
       requestBody:
         content:
           application/json:
@@ -169,7 +169,7 @@ paths:
             examples:
               KYC_FillInBodyExample:
                 value:
-                  { "phoneNumber": "+34629255833" }
+                  {"phoneNumber": "+34629255833"}
 
       responses:
         '200':
@@ -177,7 +177,7 @@ paths:
           headers:
             x-correlator:
               $ref: "#/components/headers/X-Correlator"
-              
+
           content:
             application/json:
               schema:
@@ -199,11 +199,11 @@ paths:
                     address: Tokyo-to Chiyoda-ku Iidabashi 3-10-10
                     streetName: Nicolas Salmeron
                     streetNumber: '4'
-                    postalCode: 1028460
+                    postalCode: '1028460'
                     region: Tokyo
                     locality: ZZZZ
                     country: JP
-                    houseNumberExtension: 36
+                    houseNumberExtension: '36'
                     birthdate: '1978-08-22'
                     email: abc@example.com
                     gender: MALE
@@ -234,7 +234,7 @@ components:
       required: false
       schema:
         $ref: "#/components/schemas/XCorrelator"
-                
+
   parameters:
     x-correlator:
       name: x-correlator
@@ -242,7 +242,7 @@ components:
       description: Correlation id for the different services
       schema:
         $ref: "#/components/schemas/XCorrelator"
-        
+
   schemas:
     KYC_FillinRequest:
       type: object
@@ -252,7 +252,7 @@ components:
           description: A public identifier addressing a telephone subscription. In mobile networks it corresponds to the MSISDN (Mobile Station International Subscriber Directory Number). In order to be globally unique it has to be formatted in international format, according to E.164 standard, prefixed with '+'.
           pattern: '^\+[1-9][0-9]{4,14}$'
           example: "+123456789"
-          
+
     KYC_FillinResponse:
       type: object
       properties:
@@ -280,15 +280,15 @@ components:
         name:
           type: string
           description: Complete name of the customer stored on the Operator's system.  It is usually composed of first/given name and last/family/sur- name in a country.  Depending on the country, the order of first/give name and last/family/sur- name varies, and middle name could be included.  It can use givenName, middleNames, familyName and/or familyNameAtBirth. For example, in ESP, name+familyName; in NLD, it can be name+middleNames+familyName or name+middleNames+familyNameAtBirth, etc.
-        
+
         givenName:
           type: string
           description: First/given name or compound first/given name of the customer on the Operator's system.
-          
+
         familyName:
           type: string
           description: Last name, family name, or surname of the customer stored on the Operator's system.
-          
+
         nameKanaHankaku:
           type: string
           description: Complete name of the customer in Hankaku-Kana format (reading of name) for Japan, stored on the Operator's system.
@@ -304,27 +304,27 @@ components:
         familyNameAtBirth:
           type: string
           description: Last/family/sur- name at birth of the customer stored on the Operator's system.
-          
+
         address:
           type: string
           description: Complete address of the customer stored on the Operator's system.  For some countries, it is built following the usual concatenation of parameters in a country, but for other countries, this is not the case.  For some countries, it can use streetName, streetNumber and/or houseNumberExtension. For example, in ESP, streetName+streetNumber; in NLD, it can be streetName+streetNumber or streetName+streetNumber+houseNumberExtension.
-          
+
         streetName:
           type: string
           description: Name of the street of the customer's address on the Operator's system.  It should not include the type of the street.
-          
+
         streetNumber:
           type: string
           description: The street number of the customer's address on the Operator's system.  Number identifying a specific property on the 'streetName'.
-          
+
         postalCode:
           type: string
           description: The postal code or Zip code of the customer's address, stored on the Operator's system.
-          
+
         region:
           type: string
           description: Region/prefecture of the customer's address, stored on the Operator's system.
-          
+
         locality:
           type: string
           description: Locality of the customer's address, stored on the Operator's system.
@@ -332,21 +332,21 @@ components:
         country:
           type: string
           description: Country of the customer's address stored on the Operator's system. Format ISO 3166-1 alpha-2.
-          
+
         houseNumberExtension:
           type: string
           description: House number extension of the customer stored on the Operator's system.  Specific identifier of the house needed depending on the property type. For example, number of apartment in an apartment building.
-          
+
         birthdate:
           type: string
           format: date
           description: Birthdate of the customer, in ISO 8601 calendar date format (YYYY-MM-DD), stored on the Operator's system.
-          
+
         email:
           type: string
           format: email
           description: Email address of the customer in the RFC specified format (local-part@domain), stored on the Operator's system.
-          
+
         gender:
           type: string
           description: Gender of the customer stored on the Operator's system (Male/Female/Other).
@@ -354,7 +354,7 @@ components:
             - MALE
             - FEMALE
             - OTHER
- 
+
         cityOfBirth:
           type: string
           description: City where the customer was born.
@@ -366,7 +366,7 @@ components:
         nationality:
           type: string
           description: ISO 3166-1 alpha-2 code of the customer’s nationality. In the case a customer has more than one nationality, it is supposed to be the nationality related to the ID document provided in the match request.
-         
+
     ErrorInfo:
       type: object
       required:
@@ -467,7 +467,7 @@ components:
               value:
                 status: 403
                 code: PERMISSION_DENIED
-                message: Client does not have sufficient permissions to perform this action.    
+                message: Client does not have sufficient permissions to perform this action.
 
     Generic404:
       description: Not found
@@ -533,5 +533,4 @@ components:
               value:
                 status: 422
                 code: UNNECESSARY_IDENTIFIER
-                message: An explicit phone number has been provided when one is already associated with the access token                
-
+                message: An explicit phone number has been provided when one is already associated with the access token
