@@ -121,4 +121,4 @@ Feature: CAMARA Know Your Customer Fill-in API, vwip - Operation KYC_Fill-in
     Then the response status code is 422
     And the response property "$.status" is 422
     And the response property "$.code" is "SERVICE_NOT_APPLICABLE"
-        And the response property "$.message" contains a user friendly text
+    And the response property "$.message" contains a user friendly text
