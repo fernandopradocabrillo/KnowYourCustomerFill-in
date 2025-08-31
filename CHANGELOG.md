@@ -18,7 +18,7 @@ The below sections record the changes for each API version in each release as fo
 
 ## Release Notes
 
-This public contains the definition and documentation of
+This public release contains the definition and documentation of
 * kyc-fill-in v0.4.0
 
 The API definition(s) are based on
@@ -90,5 +90,6 @@ The API definition(s) are based on
 **The repository KnowYourCustomerFill-in was created for kyc-fill-in v0.4.0 and the previous versions of the kyc-fill-in API were stored in the previous repository 'KnowYourCustomer'.  Below is the link to CHANGELOG.md in the previous repository.
 which includes the kyc-match API and the kyc-age-verification API in addition to the kyc-fill-in API.**
 * **[Link to CHANGELOG.md for kyc-fill-in versions before v0.4.0.](https://github.com/camaraproject/KnowYourCustomer/blob/main/CHANGELOG.md)**
+
 
 
