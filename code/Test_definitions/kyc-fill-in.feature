@@ -2,6 +2,10 @@ Feature: CAMARA Know Your Customer Fill-in API, v0.4.0 - Operation KYC_Fill-in
 
 # Input to be provided by the implementation to the tester
 #
+# Implementation indications:
+# * apiRoot: API root of the server URL
+#
+#
 # Testing assets:
 # * A mobile line identified by its phone number "phoneNumber"
 #
