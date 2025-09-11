@@ -44,6 +44,7 @@ The API definition(s) are based on
  * [kyc-fill-in] Update x-correlator format by @ToshiWakayama-KDDI in https://github.com/camaraproject/KnowYourCustomerFill-in/pull/13
  
 ### Fixed
+ * A typo correction, adding code markdown to kyc-fill-in:set-all in the yaml by @ToshiWakayama-KDDI in https://github.com/camaraproject/KnowYourCustomerFill-in/pull/27 (M4 Release PR)
  * Alignment with Commonalities r3.3 by @ToshiWakayama-KDDI in https://github.com/camaraproject/KnowYourCustomerFill-in/pull/26
  * [KYC Fill-in] Correction of example for gender attribute by @ToshiWakayama-KDDI in https://github.com/camaraproject/KnowYourCustomerFill-in/pull/6
 
@@ -96,6 +97,7 @@ The API definition(s) are based on
 **The repository KnowYourCustomerFill-in was created for kyc-fill-in v0.4.0 and the previous versions of the kyc-fill-in API were stored in the previous repository 'KnowYourCustomer'.  Below is the link to CHANGELOG.md in the previous repository.
 which includes the kyc-match API and the kyc-age-verification API in addition to the kyc-fill-in API.**
 * **[Link to CHANGELOG.md for kyc-fill-in versions before v0.4.0.](https://github.com/camaraproject/KnowYourCustomer/blob/main/CHANGELOG.md)**
+
 
 
 
