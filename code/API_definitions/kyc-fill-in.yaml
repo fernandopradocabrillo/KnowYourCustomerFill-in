@@ -81,6 +81,9 @@ info:
   version: 0.4.0
   x-camara-commonalities: 0.6
 
+externalDocs:
+  description: Product documentation at CAMARA.
+  url: https://github.com/camaraproject/KnowYourCustomerFill-in
 
 servers:
   - url: '{apiRoot}/kyc-fill-in/v0.4'
