@@ -47,13 +47,13 @@ Feature: CAMARA Know Your Customer Fill-in API, vwip - Operation KYC_Fill-in
   @KYC_Fill-in_03_success_request_individual_scopes
   Scenario: Validate successful response when the access token has individual scopes
     Given a valid testing phone number supported by the service, identified by the access token or provided in the request body
-    And the header "Authorization" is set to a valid access token 
+    And the header "Authorization" is set to a valid access token
     And the access token contains the scope "<scope>" and does not contain the "kyc-fill-in:set-all" scope
     When the HTTP "POST" request is sent
     Then the response status code is 200
     And the response body complies with the OAS schema at "/components/schemas/KYC_FillinResponse"
     And the response body only contains the property "<response_body_property>" if it is available
-    
+
     Examples:
       | scope                            | response_body_property |
       | kyc-fill-in:address              | $.address              |
