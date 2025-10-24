@@ -28,10 +28,59 @@ Feature: CAMARA Know Your Customer Fill-in API, vwip - Operation KYC_Fill-in
     Given a valid testing phone number supported by the service, identified by the access token or provided in the request body
     And the resource "/kyc-fill-in/vwip"
     When the HTTP "POST" request "KYC_Fill-in" is sent
-    Then the response property "$.status" is 200
+    Then the response status code is 200
     And the response header "Content-Type" is "application/json"
     And the response header "x-correlator" has same value as the request header "x-correlator"
     And the response body complies with the OAS schema at "/components/schemas/KYC_FillinResponse"
+
+  @KYC_Fill-in_02_success_request_set-all_scope
+  Scenario: Validate successful response when the access token has the "kyc-fill-in:set-all" scope
+    Given a valid testing phone number supported by the service, identified by the access token or provided in the request body
+    And the header "Authorization" is set to a valid access token with the "kyc-fill-in:set-all" scope
+    When the HTTP "POST" request is sent
+    Then the response status code is 200
+    And the response header "Content-Type" is "application/json"
+    And the response header "x-correlator" has same value as the request header "x-correlator"
+    And the response body complies with the OAS schema at "/components/schemas/KYC_FillinResponse"
+    And the response body contains all the available properties defined in the schema
+
+  @KYC_Fill-in_03_success_request_individual_scopes
+  Scenario: Validate successful response when the access token has individual scopes
+    Given a valid testing phone number supported by the service, identified by the access token or provided in the request body
+    And the header "Authorization" is set to a valid access token
+    And the access token contains the scope "<scope>" and does not contain the "kyc-fill-in:set-all" scope
+    When the HTTP "POST" request is sent
+    Then the response status code is 200
+    And the response body complies with the OAS schema at "/components/schemas/KYC_FillinResponse"
+    And the response body only contains the property "<response_body_property>" if it is available
+
+    Examples:
+      | scope                            | response_body_property |
+      | kyc-fill-in:address              | $.address              |
+      | kyc-fill-in:birthdate            | $.birthdate            |
+      | kyc-fill-in:cityOfBirth          | $.cityOfBirth          |
+      | kyc-fill-in:country              | $.country              |
+      | kyc-fill-in:countryOfBirth       | $.countryOfBirth       |
+      | kyc-fill-in:email                | $.email                |
+      | kyc-fill-in:familyName           | $.familyName           |
+      | kyc-fill-in:familyNameAtBirth    | $.familyNameAtBirth    |
+      | kyc-fill-in:gender               | $.gender               |
+      | kyc-fill-in:givenName            | $.givenName            |
+      | kyc-fill-in:houseNumberExtension | $.houseNumberExtension |
+      | kyc-fill-in:idDocument           | $.idDocument           |
+      | kyc-fill-in:idDocumentExpiryDate | $.idDocumentExpiryDate |
+      | kyc-fill-in:idDocumentType       | $.idDocumentType       |
+      | kyc-fill-in:locality             | $.locality             |
+      | kyc-fill-in:middleNames          | $.middleNames          |
+      | kyc-fill-in:name                 | $.name                 |
+      | kyc-fill-in:nameKanaHankaku      | $.nameKanaHankaku      |
+      | kyc-fill-in:nameKanaZenkaku      | $.nameKanaZenkaku      |
+      | kyc-fill-in:nationality          | $.nationality          |
+      | kyc-fill-in:phoneNumber          | $.phoneNumber          |
+      | kyc-fill-in:postalCode           | $.postalCode           |
+      | kyc-fill-in:region               | $.region               |
+      | kyc-fill-in:streetName           | $.streetName           |
+      | kyc-fill-in:streetNumber         | $.streetNumber         |
 
     # Generic 400 errors
 
@@ -72,6 +121,18 @@ Feature: CAMARA Know Your Customer Fill-in API, vwip - Operation KYC_Fill-in
     And the response property "$.code" is "UNAUTHENTICATED"
     And the response property "$.message" contains a user friendly text
     And the response property "$.status" is 401
+
+    # Generic 403 errors
+
+  @KYC_Fill-in_403.1_invalid_token_permissions
+  Scenario: Access token does not have the required permissions
+    Given the header "Authorization" is set to an access token without the required scope
+    And the request body is set to a valid request body
+    When the HTTP "POST" request is sent
+    Then the response status code is "403"
+    And the response property "$.status" is 403
+    And the response property "$.code" is "PERMISSION_DENIED"
+    And the response property "$.message" contains a user friendly text
 
     # Error scenarios for management of input parameter phoneNumber
 
