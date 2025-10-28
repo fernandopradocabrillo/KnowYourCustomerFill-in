@@ -19,7 +19,7 @@ The below sections record the changes for each API version in each release as fo
 
 ## Release Notes
 
-**NEW**: this public release contains the definition and documentation of
+This maintenance release contains the definition and documentation of
 
 * kyc-fill-in v0.4.1
 
