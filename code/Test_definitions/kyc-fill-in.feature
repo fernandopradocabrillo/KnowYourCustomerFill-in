@@ -1,4 +1,4 @@
-Feature: CAMARA Know Your Customer Fill-in API, v0.4 - Operation KYC_Fill-in
+Feature: CAMARA Know Your Customer Fill-in API, v0.4.1 - Operation KYC_Fill-in
 
 # Input to be provided by the implementation to the tester
 #
