@@ -24,7 +24,8 @@ This maintenance release contains the definition and documentation of
 * kyc-fill-in v0.4.1
 
 The API definition(s) are based on
-* Commonalities v0.6.0 [r3.3](https://github.com/camaraproject/Commonalities/releases/tag/r3.3)
+* Commonalities v0.6.1 [r3.4](https://github.com/camaraproject/Commonalities/releases/tag/r3.3)
+
 * Identity and Consent Management v0.4.0 [r3.3](https://github.com/camaraproject/IdentityAndConsentManagement/releases/tag/r3.3)
 
 ## kyc-fill-in v0.4.1
